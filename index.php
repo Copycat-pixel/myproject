@@ -14,7 +14,7 @@ $user = $_SESSION['user'];
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h2>Добро пожаловать, <?= htmlspecialchars($user['username']) ?>!</h2>
+    <h2>Добро Пожаловать, <?= htmlspecialchars($user['username']) ?>!</h2>
     <a href="logout.php">Выйти</a>
 </body>
 </html>
