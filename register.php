@@ -19,19 +19,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
 </head>
+
 <body>
-    <h2>Регистрация</h2>
-    <form method="POST">
-        <input type="text" name="username" placeholder="Имя пользователя" required><br>
-        <input type="email" name="email" placeholder="Почта" required><br>
-        <input type="password" name="password" placeholder="Пароль" required><br>
-        <button type="submit">Зарегистрироваться</button>
-    </form>
-    <p><?= $message ?></p>
+    <div class="auth-container">
+        <h2>Регистрация</h2>
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Имя пользователя" required>
+            <input type="email" name="email" placeholder="Почта" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+
+        <p class="message"><?= $message ?></p>
+
+        <p>Уже есть аккаунт? <a href="login.php">Войти</a></p>
+    </div>
 </body>
+
 </html>

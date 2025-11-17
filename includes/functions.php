@@ -1,6 +1,6 @@
 <?php
 function registerUser($conn, $username, $email, $password) {
-    $hashed = $password;
+    $hashed = password_hash($password, PASSWORD_DEFAULT);
     $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $username, $email, $hashed);
