@@ -23,12 +23,14 @@ $user = $_SESSION['user'];
                     <img src="/assets/images/heaader-logo.png" alt="">
                 </div>
                 <div class="header-textlogo">
-                    Shikofy
+                    <a href="index.php">
+                        Shikofy
+                    </a>
                 </div>
 
                 <div class="nav">
-                    <a class="nav-item" href="@">Каталог</a>
-                    <a class="nav-item" href="@">Пользователи</a>
+                    <a class="nav-item" href="/catalog.php">Каталог</a>
+                    <a class="nav-item" href="/users.php">Пользователи</a>
                     <a class="nav-item" href="/profile.php">Мой профиль</a>
                 </div>
 

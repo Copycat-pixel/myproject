@@ -4,6 +4,10 @@ body {
     color: #E0E0E0;
 }
 
+.header {
+    box-sizing: border-box;
+}
+
 .container {
     margin: 0px 100px
 }
@@ -50,6 +54,11 @@ body {
 
 .header-textlogo {
     font-size: 40px;
+}
+
+.header-textlogo a {
+    color: #E0E0E0;
+    text-decoration: none;
 }
 
 .big-banner1 {

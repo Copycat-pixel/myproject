@@ -3,21 +3,15 @@ session_start();
 include 'includes/db.php';
 include 'includes/functions.php';
 
-// Проверка авторизации
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
 
-// Получаем данные пользователя
-$user_id = $_SESSION['user_id'];
-
-$stmt = $conn->prepare("SELECT username, email FROM users WHERE id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$stmt->bind_result($username, $email);
-$stmt->fetch();
-$stmt->close();
+$user = $_SESSION['user'];
+$username = $user['username'];
+$email = $user['email'];
+$user_id = $user['id'];
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -30,11 +24,32 @@ $stmt->close();
 </head>
 
 <body>
+    <div class="header">
+        <div class="container">
+            <div class="header-line">
+                <div class="header-logo">
+                    <img src="/assets/images/heaader-logo.png" alt="">
+                </div>
+                <div class="header-textlogo">
+                    <a href="index.php">
+                        Shikofy
+                    </a>
+                </div>
+                <div class="nav">
+                    <a class="nav-item" href="/catalog.php">Каталог</a>
+                    <a class="nav-item" href="/users.php">Пользователи</a>
+                    <a class="nav-item" href="/profile.php">Мой профиль</a>
+                </div>
+
+                <div class="button-header"><a href="/login.php">Вход/Регистрация</a></div>
+            </div>
+        </div>
+    </div>
 
     <div class="profile-container">
 
         <div class="profile-header">
-            <img src="assets/img/default_user.png" class="avatar">
+            <img src="/assets/images/default-avatar.png" class="avatar">
             <h2><?= $username ?></h2>
             <p class="email"><?= $email ?></p>
 
@@ -45,8 +60,28 @@ $stmt->close();
             <h3>Мои треки</h3>
 
             <div class="tracks-list">
-                <!-- Пока заглушка -->
-                <p class="placeholder">У вас пока нет загруженных треков.</p>
+                <?php
+                $user_id = $user['id'];
+                $sql = "SELECT * FROM tracks WHERE user_id = ? ORDER BY created_at DESC";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $user_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows === 0) {
+                    echo "<p class='placeholder'>У вас пока нет загруженных треков.</p>";
+                } else {
+                    while ($track = $result->fetch_assoc()) {
+                        echo "
+                            <div class='track-item'>
+                                <div class='track-title'>{$track['title']}</div>
+                                <audio controls>
+                                    <source src='{$track['file_path']}' type='audio/mpeg'>
+                                </audio>
+                            </div>";
+                    }
+                }
+                ?>
             </div>
         </div>
 
