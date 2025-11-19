@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+
     <div class="auth-container">
         <h2>Вход</h2>
 
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <p>Нет аккаунта? <a href="register.php">Регистрация</a></p>
     </div>
+
 </body>
 
 </html>

@@ -29,10 +29,10 @@ $user = $_SESSION['user'];
                 <div class="nav">
                     <a class="nav-item" href="@">Каталог</a>
                     <a class="nav-item" href="@">Пользователи</a>
-                    <a class="nav-item" href="@">Мой профиль</a>
+                    <a class="nav-item" href="/profile.php">Мой профиль</a>
                 </div>
 
-                <div class="button-header"><a href="@">Вход/Регистрация</a></div>
+                <div class="button-header"><a href="/login.php">Вход/Регистрация</a></div>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@ $user = $_SESSION['user'];
                 образ
                 жизни.
             </div>
-            <div class="bn1-button"><a href="@"><b>Зарегистрироваться</b></a></div>
+            <div class="bn1-button"><a href="/register.php"><b>Зарегистрироваться</b></a></div>
         </div>
         <div class="banner1-img"></div>
     </div>
