@@ -103,7 +103,7 @@ $user = $_SESSION['user'];
                     <span class="footer-logo-text">Shikofy</span>
                 </div>
 
-                <div class="contact-badge">Contact us:</div>
+                <div class="contact-badge">Наши контакты:</div>
 
                 <p class="footer-text">Email: info@positivus.com</p>
                 <p class="footer-text">Phone: 999-999-9999</p>
@@ -113,7 +113,7 @@ $user = $_SESSION['user'];
 
             <div class="footer-subscribe-box">
                 <input type="email" placeholder="Email" class="footer-input">
-                <button class="footer-btn">Subscribe to news</button>
+                <button class="footer-btn">Подписаться на новости</button>
             </div>
         </div>
 

@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Вход</title>
     <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
